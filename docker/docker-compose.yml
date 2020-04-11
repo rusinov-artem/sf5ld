@@ -10,7 +10,7 @@ services:
       - ENVIRONMENT
     volumes:
       -  ./nginx/conf.d:/etc/nginx/conf.d
-      - ./..:/var/www/sf5ld
+      - ./../public:/var/www/sf5ld/public
       - ./logs/nginx:/var/log/nginx
     ports:
       - "80:80"
