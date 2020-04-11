@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{{  question}}</title>
-</head>
-<body>
-{{ question }}
-</body>
-</html>
+{% extends 'base.html.twig' %}
+
+{% block title %}This is title{% endblock %}
+
+{% block body %}
+<div>TWIG IS HERE!</div>
+{% endblock %}
