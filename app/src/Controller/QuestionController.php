@@ -21,10 +21,10 @@ class QuestionController
     }
 
     /**
-     * @Route("/questions/show")
+     * @Route("/questions/{slug}")
      */
-    public function show(){
-        return new Response("This is show action");
+    public function show($slug){
+        return new Response("This is show action $slug");
     }
 
 }
