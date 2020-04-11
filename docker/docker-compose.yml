@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx
+    restart: always
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    environment:
+      - ENVIRONMENT
+    volumes:
+      - ./../public:/home/sf5ld/sf5ld
+      - ./logs/nginx:/var/log/nginx
+    ports:
+      - "80:80"
+      - "443:443"
