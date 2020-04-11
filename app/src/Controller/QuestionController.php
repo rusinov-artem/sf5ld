@@ -4,11 +4,11 @@
 namespace App\Controller;
 
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Generator\UrlGenerator;
 
-class QuestionController
+class QuestionController extends AbstractController
 {
 
     /**
@@ -24,7 +24,9 @@ class QuestionController
      * @Route("/questions/{slug}")
      */
     public function show($slug){
-        return new Response("This is show action $slug");
+
+
+        return $this->render('question/show.html.twig',['question'=>'STRING']);
     }
 
 }
