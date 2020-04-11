@@ -10,8 +10,20 @@ services:
       - ENVIRONMENT
     volumes:
       -  ./nginx/conf.d:/etc/nginx/conf.d
-      - ./../public:/var/www/sf5ld
+      - ./..:/var/www/sf5ld
       - ./logs/nginx:/var/log/nginx
     ports:
       - "80:80"
       - "443:443"
+  php_fpm:
+    container_name: php_fpm
+    restart: always
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    environment:
+      - ENVIRONMENT
+    volumes:
+      - ./..:/var/www/sf5ld
+    ports:
+      - "9002:9000"
