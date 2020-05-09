@@ -7,13 +7,16 @@ jobs:
     # Job name is Greeting
     name: Build docker-compose
     # This job runs on Linux
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: WTF
         run: |
-          git clone https://github.com/rusinov-artem/sf5ld.git .
+          rm sf5ld/ -rf
+          git clone https://github.com/rusinov-artem/sf5ld.git
+          cd sf5ld
           git checkout develop
-          ls -la
-          cd docker
-          docker-compose up -d
+          cd  docker
+          export DOCKER_HOST="unix://run/docker.sock"
+          env
+          sudo docker-compose up -d
           curl localhost/i.php | grep "I'm ok"
