@@ -1,9 +1,13 @@
-FROM php:7.4-fpm
+FROM php:7.4-fpm AS php_fpm
+ARG XDEBUG
+ENV XDEBUG $XDEBUG
 
-#if develop mode
-RUN apt-get update; apt-get install -y vim telnet git iputils-ping net-tools iptables libcap-dev iproute2 tcpdump
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
-#end if develop mode
+COPY build.php /usr/bin/build.php
+RUN php /usr/bin/build.php
 
-COPY php.ini /usr/local/etc/php/
+
+
+
+COPY php.ini /usr/local/etc/php/conf.d/local.ini
+
+WORKDIR /var/www/sf5ld

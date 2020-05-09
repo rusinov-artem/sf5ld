@@ -21,8 +21,6 @@ services:
     build:
       context: ./php
       dockerfile: Dockerfile
-      args:
-        - XDEBUG=1
     environment:
       - ENVIRONMENT
       - PHP_IDE_CONFIG=serverName=remote
