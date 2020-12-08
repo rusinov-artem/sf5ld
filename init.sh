@@ -1,4 +1,4 @@
-# /bin/bash
+#!/bin/bash
 cd docker
 docker-compose -f docker-compose.yml up -d;
 docker exec  php_fpm bash -c  "rm /var/www/sf5ld/app/var -rf"
